@@ -84,7 +84,7 @@ steps:
     name: "Helm Build"
     command: |
       pwd  
-      cd ${OCI_WORKSPACE_DIR}/node_express/helm/repo5
+      cd ${OCI_WORKSPACE_DIR}/node_express/helm/node-service
       export BUILDRUN_HASH=${BUILDRUN_HASH}
       originalChartfile="Chart.yaml"
       tmpChartfile=$(mktemp)
