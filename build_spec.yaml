@@ -89,7 +89,7 @@ steps:
       originalChartfile="Chart.yaml"
       tmpChartfile=$(mktemp)
       cp --attributes-only --preserve $originalChartfile $tmpChartfile
-      cat $originalChartfile | envsubst > $tmpChartfile && mv $tmpChartfile $originalChartfile
+      cat $originalChartfile | envsubst '$BUILDRUN_HASH' > $tmpChartfile && mv $tmpChartfile $originalChartfile
       cat Chart.yaml
       helm package .
       helm registry login ${HELM_REPO} -u ${HELM_REPO_USER} -p ${USER_AUTH_TOKEN}
